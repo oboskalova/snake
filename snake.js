@@ -35,17 +35,18 @@ var Snake = new function() {
         if ( e.which === 1) {
             let elemName=elem.innerText;
 
-            if(elemName ==="+"||elemName ==="-") {
+            if(elemName ==="+"||elemName ==="-"&&started) {
                 speedy(elem);
                 moving(newDirection, true);
             }
-           if(isDirection(elemName)){
+           if(isDirection(elemName)&&started){
                defaultDirection=newDirection;
                 newDirection=elemName;
                 moving(newDirection);
             }
             if(elemName==="start"){
-                start();
+                clearInterval(timerId);
+                started=start();
             }
 
         }
