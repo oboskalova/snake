@@ -16,7 +16,6 @@ var Snake = new function() {
         top: 200px;";
     function OnClickMy (e) {
         var elem = e.target.closest('.direction');
-        moving(defaultDirection);
         if ( e.which === 1) {
             let elemName=elem.innerText;
 
