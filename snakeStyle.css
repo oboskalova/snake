@@ -3,6 +3,10 @@
   height: 400px;
   background: #FF8072 no-repeat;
   position: relative;
+  border: 3px solid black;
+}
+.table{
+  border: 1px solid black;
 
 }
 #snake {
@@ -16,42 +20,43 @@
 
 }
 #plus{
-  height: 20px;
+  height: 22px;
+  width: 20px;
   paddding:0px;
 }
 #minus{
-  height: 20px;
+  height: 22px;
+  width: 20px;
   paddding:0px;
 }
 
 
-#up{
-  width: 40px;
-  height: 40px;
-  padding: 0px;
-}
-#down {
-  width: 40px;
-  height: 40px;
-  padding: 0px;
-}
-#left, #right,
+
 .direction
 {
   width: 40px;
-  height: 20px;
+  height: 42px;
   background-color: chartreuse;
   text-align: center;
-
+  border: 1px solid black;
 }
 
 #result {
+  border: 1px solid black;
   width: 40px;
-  height: 25px;
+  height: 30px;
   text-align: center;
   vertical-align: center;
   padding-top: 15px;
   background-color: aquamarine;
+}
+#start{
+ width: 212px;
+ height: 40px;
+ font-size:20px;
+ text-align: center;
+ background-color: red;
+ padding-top: 5px;
 }
 
 
