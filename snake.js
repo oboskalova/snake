@@ -8,6 +8,8 @@ var Snake = new function() {
 
     var start = () => {
         defaultDirection="right";
+        let res = document.getElementById('result');
+        res.innerText="1";
         timerId = setInterval(() => {
             strStyle=makeStep(defaultDirection);
             snake.style.cssText=strStyle
