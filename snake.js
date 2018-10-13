@@ -2,11 +2,25 @@ var Snake = new function() {
 
     var defaultDirection="right";
     var newDirection=defaultDirection;
-    var timerId = setInterval(function(){
-        strStyle=makeStep(defaultDirection);
-        snake.style.cssText=strStyle;
-    }, 1000);
+    var timerId;
+    var started = false;
     var x=200, y=200;
+
+    var start = () => {
+        defaultDirection="right";
+        timerId = setInterval(() => {
+            strStyle=makeStep(defaultDirection);
+            snake.style.cssText=strStyle
+        }, 1000);
+        return true
+    };
+    var death = () => {
+        clearInterval(timerId);
+        alert('Достигнута граница, конец игры');
+        started = false;
+        x=200;
+        y=200;
+    };
     var strStyle="position: absolute;\
         width: 5px;\
         height: 5px;\
@@ -19,7 +33,7 @@ var Snake = new function() {
         if ( e.which === 1) {
             let elemName=elem.innerText;
 
-            if(elemName ==="plus"||elemName ==="minus") {
+            if(elemName ==="+"||elemName ==="-") {
                 speedy(elem);
                 moving(newDirection, true);
             }
@@ -27,6 +41,9 @@ var Snake = new function() {
                defaultDirection=newDirection;
                 newDirection=elemName;
                 moving(newDirection);
+            }
+            if(elemName==="start"){
+                start();
             }
 
         }
@@ -87,37 +104,20 @@ var Snake = new function() {
         switch (direction){
             case "up":
                 y-=5;
-                if(!y)
-                {
-                    alert( "граница");
-                    return;
-                }
-
+                if(!y) death()
                 break;
             case  "down":
                 y+=5;
-                if(y>=400) {
-                    alert( "граница");
-                    return;
-                }
+                if(y>=400) death()
+
                 break;
             case "left" :
                 x-=5;
-                if(!x)
-                {
-                    alert( "граница");
-                    return;
-                }
+                if(!x) death()
                 break;
             case "right":
                 x+=5;
-                if(x>=400)
-                {
-                    alert( "граница");
-                    x=200;
-                    y=200;
-                    return;
-                }
+                if(x>=400) death()
                 break;
         }
         return newStyle(strStyle, x, y);
@@ -144,10 +144,10 @@ var Snake = new function() {
          let res = document.getElementById('result');
          let elemName = elem.innerText;
          let resValue = +res.innerText;
-         if(elemName==="plus"&&resValue<10) {
+         if(elemName==="+"&&resValue<10) {
              res.innerText = resValue + 1;
          }
-         if (elemName==="minus"&&res.innerText > 1) {
+         if (elemName==="-"&&res.innerText > 1) {
                  res.innerText = resValue-1;
 
          }
