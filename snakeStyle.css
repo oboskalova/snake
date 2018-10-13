@@ -1,0 +1,57 @@
+.wall {
+  width: 400px;
+  height: 400px;
+  background: #FF8072 no-repeat;
+  position: relative;
+
+}
+#snake {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #000000;
+  padding: 0px;
+  left: 200px;
+  top: 200px;
+
+}
+#plus{
+  height: 20px;
+  paddding:0px;
+}
+#minus{
+  height: 20px;
+  paddding:0px;
+}
+
+
+#up{
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+}
+#down {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+}
+#left, #right,
+.direction
+{
+  width: 40px;
+  height: 20px;
+  background-color: chartreuse;
+  text-align: center;
+
+}
+
+#result {
+  width: 40px;
+  height: 25px;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 15px;
+  background-color: aquamarine;
+}
+
+
